@@ -60,7 +60,7 @@ contract PoolFactory {
     /*//////////////////////////////////////////////////////////////
                    EXTERNAL AND PUBLIC VIEW AND PURE
     //////////////////////////////////////////////////////////////*/
-    function getPool(address tokenAddress) external view returns (address) {
+    function cdPool(address tokenAddress) external view returns (address) {
         return s_pools[tokenAddress];
     }
 

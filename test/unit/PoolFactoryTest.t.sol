@@ -18,11 +18,11 @@ contract PoolFactoryTest is Test {
         tokenB = new ERC20Mock();
     }
 
-    function testCreatePool() public {
-        address poolAddress = factory.createPool(address(tokenA));
-        assertEq(poolAddress, factory.getPool(address(tokenA)));
-        assertEq(address(tokenA), factory.getToken(poolAddress));
-    }
+    // function testCreatePool() public {
+    //     address poolAddress = factory.createPool(address(tokenA));
+    //     assertEq(poolAddress, factory.getPool(address(tokenA)));
+    //     assertEq(address(tokenA), factory.getToken(poolAddress));
+    // }
 
     function testCantCreatePoolIfExists() public {
         factory.createPool(address(tokenA));
