@@ -81,7 +81,7 @@ contract TSwapPool is ERC20 {
     //////////////////////////////////////////////////////////////*/
 
     /// @notice Adds liquidity to the pool
-    
+
     /// @dev The invariant of this function is that the ratio of WETH, PoolTokens, and LiquidityTokens is the same
     /// before and after the transaction
 
@@ -93,9 +93,10 @@ contract TSwapPool is ERC20 {
     /// @param deadline The deadline for the transaction to be completed by
     function deposit(
         uint256 wethToDeposit,
-        uint256 minimumLiquidityTokensToMint,//liquidity tokens zero kantey ekkuva untey formula prakaram compulsory ga 
-                                                                    //certain amount anni input cheyyalsindhey 
-        uint256 maximumPoolTokensToDeposit, //liquidity tokens zero kantey ekkuva untey  compilsory ga pool tokens deposit chesyyali based on weth 
+        uint256 minimumLiquidityTokensToMint, //liquidity tokens zero kantey ekkuva untey formula prakaram compulsory ga
+            //certain amount anni input cheyyalsindhey
+        uint256 maximumPoolTokensToDeposit, //liquidity tokens zero kantey ekkuva untey  compilsory ga pool tokens
+            // deposit chesyyali based on weth
         uint64 deadline
     )
         external
