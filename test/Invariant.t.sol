@@ -34,6 +34,8 @@ contract Invariant is StdInvariant, Test {
     function testBalance() public {
         console2.log("balance of weth", weth.balanceOf(liquidityProvider));
         console2.log("balance of PoolToken", PoolToken.balanceOf(liquidityProvider));
+         console2.log("balance of weth", weth.balanceOf(address(pool)));
+        console2.log("balance of PoolToken", PoolToken.balanceOf(address(pool)));
     }
 
      function testDeposit() public {

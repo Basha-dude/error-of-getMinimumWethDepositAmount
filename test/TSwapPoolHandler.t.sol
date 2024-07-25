@@ -67,9 +67,18 @@ contract TSwapPoolHandler is Test {
     }
 
     function deposit(uint256 outputWeth) public {
+         uint256 amountPoolTokensToDepositBasedOnWeth = pool.getPoolTokensToDepositBasedOnWeth(outputWeth);
         outputWeth = bound(outputWeth, 0, pool.getMinimumWethDepositAmount());
         vm.startPrank(LiquidiyProvider);
-        pool.deposit(outputWeth, 0, pool.getPoolTokensToDepositBasedOnWeth(outputWeth), uint64(block.timestamp));
+        weth.mint(LiquidiyProvider, outputWeth);
+        PoolToken.mint(LiquidiyProvider, amountPoolTokensToDepositBasedOnWeth);
+
+        weth.approve(address(pool), outputWeth);
+        PoolToken.approve(address(pool), amountPoolTokensToDepositBasedOnWeth);
+
+        pool.deposit(outputWeth, 0, amountPoolTokensToDepositBasedOnWeth, uint64(block.timestamp));
+                vm.stopPrank();
+
         startingY  = int256(weth.balanceOf(address(pool)));
         startingX = int256(PoolToken.balanceOf(address(pool)));
 
